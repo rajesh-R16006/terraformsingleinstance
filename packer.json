@@ -11,9 +11,8 @@
     },
     "_comment1" : "packer build -var \"aws_secret_key=foo\" template.json",
     "_comment2" : "packer build -var-file packer-vars.json template.json",
-    "builders": [{
-     # "access_key": "{{user `aws_access_key`}}",
-     #"secret_key": "{{user `aws_secret_key`}}",
+    "builders": [
+        
       "type": "amazon-ebs",
       "region": "{{user `region`}}",
       "source_ami": "{{user `source_ami`}}",
@@ -33,11 +32,6 @@
         "sudo apt update -y",
         "sudo apt install nginx -y",
         "sudo apt install git -y",
-      #  "sudo git clone https://github.com/mavrick202/webhooktesting.git",
-      #  "sudo rm -rf /var/www/html/index.nginx-debian.html",
-      #  "sudo cp webhooktesting/index.html /var/www/html/index.nginx-debian.html",
-      #  "sudo cp webhooktesting/style.css /var/www/html/style.css",
-      #"sudo cp webhooktesting/scorekeeper.js /var/www/html/scorekeeper.js",
         "sudo service nginx start",
         "sudo systemctl enable nginx",
         "curl https://get.docker.com | bash"
